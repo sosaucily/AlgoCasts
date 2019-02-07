@@ -34,10 +34,17 @@
 // }
 
 //Solution 2
-function steps(n: number): void {
-  for (let i = 1; i <= n; i++) {
-    console.log("#".repeat(i).concat(" ".repeat(n - i)));
-  }
-}
+// function steps(n: number): void {
+//   for (let i = 1; i <= n; i++) {
+//     console.log("#".repeat(i).concat(" ".repeat(n - i)));
+//   }
+// }
 
+//Solution 3: Recursion
+function steps(n: number, iter: number = 0): void {
+  if (n === 0) return;
+
+  steps(n - 1, iter + 1);
+  console.log("#".repeat(n).concat(" ".repeat(iter)));
+}
 export default steps;
