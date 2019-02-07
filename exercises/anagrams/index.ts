@@ -8,31 +8,52 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+//Solution 1:
+// function anagrams(stringA: string, stringB: string): boolean {
+//   const mod_a: string = stringA.replace(/[\W_]/g, "").toLowerCase();
+//   const mod_b: string = stringB.replace(/[\W_]/g, "").toLowerCase();
+
+//   const elements: Object = {};
+//   const elements2: Object = {};
+//   for (let char of mod_a) {
+//     elements[char] = elements[char] + 1 || 1;
+//   }
+
+//   for (let char of mod_b) {
+//     elements2[char] = elements2[char] + 1 || 1;
+//   }
+
+//   return compareObjs(elements, elements2);
+// }
+
+// function compareObjs(obj1: object, obj2: object): boolean {
+//   for (let key in obj1) {
+//     if (obj1[key] !== obj2[key]) return false;
+//   }
+
+//   return Object.keys(obj1).length === Object.keys(obj2).length;
+// }
+
+//Solution 2:
 function anagrams(stringA: string, stringB: string): boolean {
-  const mod_a: string = stringA.replace(/[\W_]/g, "").toLowerCase();
-  const mod_b: string = stringB.replace(/[\W_]/g, "").toLowerCase();
+  const arrayA = stringA
+    .replace(/[\W_]/g, "")
+    .toLowerCase()
+    .split("")
+    .sort();
+  const arrayB = stringB
+    .replace(/[\W_]/g, "")
+    .toLowerCase()
+    .split("")
+    .sort();
 
-  const elements: Object = {};
-  const elements2: Object = {};
-  for (let char of mod_a) {
-    elements[char] = elements[char] + 1 || 1;
+  if (arrayA.length !== arrayB.length) return false;
+
+  for (let x = 0; x < arrayA.length; x++) {
+    if (arrayA[x] !== arrayB[x]) return false;
   }
 
-  for (let char of mod_b) {
-    elements2[char] = elements2[char] + 1 || 1;
-  }
-
-  return compareObjs(elements, elements2);
-}
-
-function compareObjs(obj1: object, obj2: object): boolean {
-  for (let key in obj1) {
-    if (obj1[key] !== obj2[key]) return false;
-  }
-
-  return Object.keys(obj1).length === Object.keys(obj2).length;
+  return true;
 }
 
 export default anagrams;
-
-//Do with sort
