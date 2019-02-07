@@ -36,24 +36,18 @@
 
 //Solution 2:
 function anagrams(stringA: string, stringB: string): boolean {
-  const arrayA = stringA
+  const newStringA = stringA
     .replace(/[\W_]/g, "")
     .toLowerCase()
     .split("")
-    .sort();
-  const arrayB = stringB
+    .sort().join('');
+  const newStringB = stringB
     .replace(/[\W_]/g, "")
     .toLowerCase()
     .split("")
-    .sort();
+    .sort().join('');
 
-  if (arrayA.length !== arrayB.length) return false;
-
-  for (let x = 0; x < arrayA.length; x++) {
-    if (arrayA[x] !== arrayB[x]) return false;
-  }
-
-  return true;
+  return newStringA === newStringB;
 }
 
 export default anagrams;
