@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    // "noEmit": true,
+    "target": "es6"
+    //   "module": "commonjs",
+    //   "moduleResolution": "node",
+    //   "jsx": "preserve",
+    //   "lib": ["dom","es5","es6","es7","es2017.object"]
+  }
+  // "filesGlob": [
+  //   "./**/*.ts"
+  // ],
+  // "exclude": [
+  //   "node_modules",
+  //   "build"
+  // ],
+  // "awesomeTypescriptLoaderOptions": {
+  //   "useBabel": true,
+  //   "forkChecker": true,
+  //   "useCache": false
+  // }
+}
