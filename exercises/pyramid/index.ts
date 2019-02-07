@@ -14,12 +14,24 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n: number) {
-  for (let i = 1; i <= n; i++) {
-    console.log(
-      " ".repeat(n - i) + "#".repeat((i - 1) * 2 + 1) + " ".repeat(n - i)
-    );
-  }
+//Solution 1
+// function pyramid(n: number) {
+//   for (let i = 1; i <= n; i++) {
+//     console.log(
+//       " ".repeat(n - i) + "#".repeat((i - 1) * 2 + 1) + " ".repeat(n - i)
+//     );
+//   }
+// }
+
+// Solutoin 2: recursion
+function pyramid(n: number, iter: number = 0) {
+  if (n === 0) return;
+
+  pyramid(n - 1, iter + 1);
+
+  console.log(
+    " ".repeat(iter) + "#".repeat((n - 1) * 2 + 1) + " ".repeat(iter)
+  );
 }
 
 export default pyramid;
